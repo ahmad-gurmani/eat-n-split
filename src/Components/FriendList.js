@@ -1,8 +1,22 @@
-function FriendList() {
+import Friends from "./Friends"
+
+function FriendList({ friend, onHandleSelection, selectedFriend }) {
+
     return (
-        <div>
-            Friend List
-        </div>
+        <>
+            <ul>
+                {friend.map((friend) => {
+                    return (
+                        <Friends
+                            friend={friend}
+                            key={friend.id}
+                            onHandleSelectionInside={onHandleSelection}
+                            selectedFriend={selectedFriend}
+                        />
+                    )
+                })}
+            </ul>
+        </>
     )
 }
 
